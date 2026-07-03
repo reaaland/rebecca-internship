@@ -10,3 +10,61 @@
 @import "./css/styles/style.css";
 @import "./css/colors/scheme-01.css";
 @import "./css/styles/coloring.css";
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+
+.slick-slide {
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.slick-list {
+  margin: 0 -12px;
+}
+
+.nft_coll {
+  margin: 0 auto;
+}
+
+.slick-prev {
+  left: -35px;
+  z-index: 10;
+}
+
+.slick-next {
+  right: -35px;
+  z-index: 10;
+}
+
+#section-collections .slick-prev,
+#section-collections .slick-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  z-index: 20;
+  transition: all .2s ease;
+}
+
+#section-collections .slick-prev:hover,
+#section-collections .slick-next:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+#section-collections .slick-prev:before,
+#section-collections .slick-next:before {
+  color: #111;
+  font-size: 22px;
+  opacity: 1;
+}
+
+#section-collections .slick-prev {
+  left: 10px;
+}
+
+#section-collections .slick-next {
+  right: 10px;
+}

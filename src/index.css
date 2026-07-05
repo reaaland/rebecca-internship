@@ -112,6 +112,7 @@
   box-shadow: 0 8px 20px rgba(0,0,0,.15);
 }
 
+
 .custom-prev i,
 .custom-next i {
   color: #333;
@@ -151,4 +152,29 @@
   100% {
     transform: translateX(100%);
   }
+}
+.skeleton-img {
+  height: 220px;
+  border-radius: 12px 12px 0 0;
+}
+
+.skeleton-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: -35px auto 16px;
+}
+
+.skeleton-title {
+  width: 60%;
+  height: 20px;
+  margin: 0 auto 12px;
+  border-radius: 4px;
+}
+
+.skeleton-code {
+  width: 40%;
+  height: 16px;
+  margin: 0 auto 20px;
+  border-radius: 4px;
 }

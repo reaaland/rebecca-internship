@@ -89,46 +89,48 @@ function NextArrow(props) {
         <div className="row">
           <div className="col-lg-12">
             <Slider {...settings}>
-              {loading
-                ? new Array(4).fill(0).map((_, index) => (
-                    <div key={index}>
-                      <div className="nft_coll skeleton-card">
-                        <div className="skeleton-img"></div>
-                        <div className="skeleton-avatar"></div>
-                        <div className="skeleton-title"></div>
-                        <div className="skeleton-code"></div>
+              {loading ? (
+                Array.from({ length: 4 }).map((_, index) => (
+                  <div key={index}>
+                    <div className="nft_coll skeleton-card">
+                      <div className="skeleton-img"></div>
+                      <div className="skeleton-avatar"></div>
+                      <div className="skeleton-title"></div>
+                      <div className="skeleton-code"></div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                collections.map((collection) => (
+                  <div key={collection.id}>
+                    <div className="nft_coll">
+                      <div className="nft_wrap">
+                        <Link to="/item-details">
+                          <img src={collection.nftImage} className="lazy img-fluid" alt="" />
+                        </Link>
+                      </div>
+
+                      <div className="nft_coll_pp">
+                        <Link to="/author">
+                          <img
+                            className="lazy pp-coll"
+                            src={collection.authorImage}
+                            alt=""
+                          />
+                        </Link>
+                        <i className="fa fa-check"></i>
+                      </div>
+
+                      <div className="nft_coll_info">
+                        <Link to="/explore">
+                          <h4>{collection.title}</h4>
+                        </Link>
+                        <span>ERC-{collection.code}</span>
                       </div>
                     </div>
-                  ))
-                : collections.map((collection) => (
-                    <div key={collection.id}>
-                      <div className="nft_coll">
-                        <div className="nft_wrap">
-                          <Link to="/item-details">
-                            <img src={collection.nftImage} className="lazy img-fluid" alt="" />
-                          </Link>
-                        </div>
-
-                        <div className="nft_coll_pp">
-                          <Link to="/author">
-                            <img
-                              className="lazy pp-coll"
-                              src={collection.authorImage}
-                              alt=""
-                            />
-                          </Link>
-                          <i className="fa fa-check"></i>
-                        </div>
-
-                        <div className="nft_coll_info">
-                          <Link to="/explore">
-                            <h4>{collection.title}</h4>
-                          </Link>
-                          <span>ERC-{collection.code}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                  </div>
+                ))
+              )}
             </Slider>
           </div>
         </div>

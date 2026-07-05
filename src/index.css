@@ -14,44 +14,38 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 
-.slick-slide {
-  padding: 0 12px;
+/* Hot Collections Slider */
+#section-collections .slick-list {
+  margin: 0 -6px;
+}
+
+#section-collections .slick-slide {
+  padding: 0 6px;
   box-sizing: border-box;
 }
 
-.slick-list {
-  margin: 0 -12px;
-}
-
-.nft_coll {
+#section-collections .nft_coll {
   margin: 0 auto;
+  max-width: 288px;
 }
 
-.slick-prev {
-  left: -35px;
-  z-index: 10;
-}
-
-.slick-next {
-  right: -35px;
-  z-index: 10;
-}
-
+/* arrows */
 #section-collections .slick-prev,
 #section-collections .slick-next {
   width: 44px;
   height: 44px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 20;
-  transition: all .2s ease;
 }
 
-#section-collections .slick-prev:hover,
-#section-collections .slick-next:hover {
-  background: #fff;
-  transform: scale(1.05);
+#section-collections .slick-prev {
+  left: -6px;
+}
+
+#section-collections .slick-next {
+  right: -6px;
 }
 
 #section-collections .slick-prev:before,
@@ -61,10 +55,7 @@
   opacity: 1;
 }
 
-#section-collections .slick-prev {
-  left: 10px;
-}
-
-#section-collections .slick-next {
-  right: 10px;
+#section-collections .slick-prev:hover,
+#section-collections .slick-next:hover {
+  background: #fff;
 }

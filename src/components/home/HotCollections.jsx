@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -9,12 +7,11 @@ import "slick-carousel/slick/slick-theme.css";
 
 const HotCollections = () => {
   const [collections, setCollections] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getData();
   }, []);
-
-  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
     try {
@@ -32,19 +29,51 @@ const HotCollections = () => {
     }
   };
 
-    const settings = {
+ const settings = {
   dots: false,
   arrows: true,
   infinite: true,
   speed: 500,
   slidesToShow: 4,
   slidesToScroll: 1,
+  prevArrow: <PrevArrow />,
+  nextArrow: <NextArrow />,
   responsive: [
-    { breakpoint: 1200, settings: { slidesToShow: 3 } },
-    { breakpoint: 900, settings: { slidesToShow: 2 } },
-    { breakpoint: 600, settings: { slidesToShow: 1 } },
+    {
+      breakpoint: 1300,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 550,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
   ],
 };
+
+function PrevArrow(props) {
+  const { onClick } = props;
+
+  return (
+    <button className="custom-prev" onClick={onClick}>
+      <i className="fas fa-chevron-left"></i>
+    </button>
+  );
+}
+
+function NextArrow(props) {
+  const { onClick } = props;
+
+  return (
+    <button className="custom-next" onClick={onClick}>
+      <i className="fas fa-chevron-right"></i>
+    </button>
+  );
+}
 
   return (
     <section id="section-collections" className="no-bottom">
@@ -58,38 +87,49 @@ const HotCollections = () => {
           </div>
         </div>
         <div className="row">
-           <div className="col-lg-12">
-          <Slider {...settings}>
-            {collections.map((collection) => (
-              <div key={collection.id}>
-                <div className="nft_coll">
-                  <div className="nft_wrap">
-                    <Link to="/item-details">
-                      <img src={collection.nftImage} className="lazy img-fluid" alt="" />
-                    </Link>
-                  </div>
+          <div className="col-lg-12">
+            <Slider {...settings}>
+              {loading
+                ? new Array(4).fill(0).map((_, index) => (
+                    <div key={index}>
+                      <div className="nft_coll skeleton-card">
+                        <div className="skeleton-img"></div>
+                        <div className="skeleton-avatar"></div>
+                        <div className="skeleton-title"></div>
+                        <div className="skeleton-code"></div>
+                      </div>
+                    </div>
+                  ))
+                : collections.map((collection) => (
+                    <div key={collection.id}>
+                      <div className="nft_coll">
+                        <div className="nft_wrap">
+                          <Link to="/item-details">
+                            <img src={collection.nftImage} className="lazy img-fluid" alt="" />
+                          </Link>
+                        </div>
 
-                  <div className="nft_coll_pp">
-                    <Link to="/author">
-                      <img
-                        className="lazy pp-coll"
-                        src={collection.authorImage}
-                        alt=""
-                      />
-                    </Link>
-                    <i className="fa fa-check"></i>
-                  </div>
+                        <div className="nft_coll_pp">
+                          <Link to="/author">
+                            <img
+                              className="lazy pp-coll"
+                              src={collection.authorImage}
+                              alt=""
+                            />
+                          </Link>
+                          <i className="fa fa-check"></i>
+                        </div>
 
-                  <div className="nft_coll_info">
-                    <Link to="/explore">
-                      <h4>{collection.title}</h4>
-                    </Link>
-                    <span>ERC-{collection.code}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
+                        <div className="nft_coll_info">
+                          <Link to="/explore">
+                            <h4>{collection.title}</h4>
+                          </Link>
+                          <span>ERC-{collection.code}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+            </Slider>
           </div>
         </div>
       </div>

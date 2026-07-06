@@ -8,6 +8,7 @@ import axios from "axios";
 const Author = () => {
    const { id } = useParams();
    const [author, setAuthor] = useState({});
+   const [followers, setFollowers] = useState(0);
    const [isFollowing, setIsFollowing] = useState(false);
 
    useEffect(() => {
@@ -23,6 +24,7 @@ const Author = () => {
     console.log("Author data:", data);
 
     setAuthor(data);
+    setFollowers(data.followers);
     // setIsFollowing(data.isFollowing);
 
   } catch (error) {
@@ -72,13 +74,21 @@ const Author = () => {
                   <div className="profile_follow de-flex">
                     <div className="de-flex-col">
                       <div className="profile_follower">
-                        {author?.price} ETH
+                        {followers} followers
                       </div>
 
                       <button
                         type="button"
                         className="btn-main"
-                        onClick={() => setIsFollowing(!isFollowing)}
+                       onClick={() => {
+                        if (isFollowing) {
+                          setFollowers(followers - 1);
+                        } else {
+                          setFollowers(followers + 1);
+                        }
+
+                        setIsFollowing(!isFollowing);
+                      }}
                       >
                         {isFollowing ? "Unfollow" : "Follow"}
                       </button>

@@ -1,49 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-
 
 const AuthorItems = ({ author }) => {
- const [items, setItems] = useState([]);
-const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        getData();
-      }, []);
-  
-  const getData = async () => {
-        try {
-      const { data } = await axios.get(
-        "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
-      );
-          
-      setItems(data);
-      setLoading(false);
-
-          
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000); 
-
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+  const authorItems = author?.nftCollection || [];
   return (
 
   <div className="de_tab_content">
     <div className="tab-1">
       <div className="row">
-        {loading
-          ? new Array(8).fill(0).map((_, index) => (
-              <div
-                className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
-                key={index}
-              >
-                <div className="nft__item skeleton-card"></div>
-              </div>
-            ))
-          : items.slice(0, 8).map((item) => (
+          {authorItems.slice(0, 8).map((item) => (
               <div
                 className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                 key={item.id}

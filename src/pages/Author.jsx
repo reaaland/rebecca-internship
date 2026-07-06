@@ -8,28 +8,22 @@ import axios from "axios";
 const Author = () => {
    const { id } = useParams();
    const [author, setAuthor] = useState({});
+   const [isFollowing, setIsFollowing] = useState(false);
 
    useEffect(() => {
       getAuthor();
     }, [id]);
 
-    const getAuthor = async () => {
-      
+ const getAuthor = async () => {
   try {
     const { data } = await axios.get(
-      "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
+      `https://us-central1-nft-cloud-functions.cloudfunctions.net/authors?author=${id}`
     );
 
-   const selectedAuthor = data.find(
-  (seller) => seller.authorId === Number(id)
-);
-   console.log("Route id:", id);
+    console.log("Author data:", data);
 
-   console.log("Selected author:", selectedAuthor);
-   
-   console.log(selectedAuthor);
-
-    setAuthor(selectedAuthor);
+    setAuthor(data);
+    // setIsFollowing(data.isFollowing);
 
   } catch (error) {
     console.error(error);
@@ -81,9 +75,13 @@ const Author = () => {
                         {author?.price} ETH
                       </div>
 
-                      <Link to="#" className="btn-main">
-                        Follow
-                      </Link>
+                      <button
+                        type="button"
+                        className="btn-main"
+                        onClick={() => setIsFollowing(!isFollowing)}
+                      >
+                        {isFollowing ? "Unfollow" : "Follow"}
+                      </button>
                     </div>
                   </div>
 

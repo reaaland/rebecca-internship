@@ -12,16 +12,11 @@ const [loading, setLoading] = useState(true);
       }, []);
   
   const getData = async () => {
-    try {
+        try {
       const { data } = await axios.get(
-        "https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems"
+        "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
       );
-      // const filteredItems = data.filter(
-      //   (item) => item.authorId === author?.authorId
-      // );
-
-      // setItems(filteredItems);
-      
+          
       setItems(data);
       setLoading(false);
 
@@ -48,14 +43,14 @@ const [loading, setLoading] = useState(true);
                 <div className="nft__item skeleton-card"></div>
               </div>
             ))
-          : items.map((item) => (
+          : items.slice(0, 8).map((item) => (
               <div
                 className="col-lg-3 col-md-6 col-sm-6 col-xs-12"
                 key={item.id}
               >
                 <div className="nft__item">
                   <div className="author_list_pp">
-                    <Link to="">
+                    <Link to={`/author/${author?.authorId}`}>
                       <img
                         className="lazy"
                         src={author?.authorImage}

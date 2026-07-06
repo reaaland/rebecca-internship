@@ -14,9 +14,10 @@ const Author = () => {
     }, [id]);
 
     const getAuthor = async () => {
+      
   try {
     const { data } = await axios.get(
-      "https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers"
+      "https://us-central1-nft-cloud-functions.cloudfunctions.net/explore"
     );
 
    const selectedAuthor = data.find(

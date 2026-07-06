@@ -120,7 +120,7 @@ const getCountdown = (expirationDate) => {
           <div className="col-lg-12">
             <Slider {...settings}>
               {collections.map((collection, index) => (
-                <div key={index} className="nft__item_wrap_outer">
+                <div key={index} >
                   <div className="nft__item">
                     <div className="author_list_pp">
                       <Link to="/author"

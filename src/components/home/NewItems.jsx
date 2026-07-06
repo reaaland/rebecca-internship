@@ -123,7 +123,7 @@ const getCountdown = (expirationDate) => {
                 <div key={index} >
                   <div className="nft__item">
                     <div className="author_list_pp">
-                      <Link to="/author"
+                      <Link to={`/author/${collection.authorId}`}
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title={`Creator: ${collection.authorName}`}

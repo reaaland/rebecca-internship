@@ -50,16 +50,16 @@
 }
 
 #section-items .nft__item {
-  min-height: 410px;
+  height: auto ;
   padding: 20px;
   position: relative;
 }
 
 #section-items .nft__item_wrap {
-  height: 230px;
+  height: 220px;
   overflow: hidden;
   margin-top: 32px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 #section-items .nft__item_preview {
@@ -76,17 +76,19 @@
 }
 
 #section-items .nft__item_info {
-   padding-top: 0;
+   position: relative;
 }
 
 #section-items .nft__item_price {
+  margin-top: 6px;
   margin-bottom: 0;
+  display: inline-block;
 }
 
 #section-items .nft__item_like {
   position: absolute;
-  right: 20px;
-  bottom: 18px;
+  right: 0;
+  bottom: 0;
 }
 
 /* arrows */

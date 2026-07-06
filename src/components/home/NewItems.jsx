@@ -146,7 +146,7 @@ const getCountdown = (expirationDate) => {
                       </div>
                     </div>
 
-                    <Link to="/item-details">
+                    <Link to={`/item-details/${collection.nftId}`}>
                       <img
                         src={collection.nftImage}
                         className="lazy nft__item_preview"
@@ -156,7 +156,7 @@ const getCountdown = (expirationDate) => {
                   </div>
 
                   <div className="nft__item_info">
-                    <Link to="/item-details">
+                    <Link to={`/item-details/${collection.nftId}`}>
                       <h4>{collection.title}</h4>
                     </Link>
 

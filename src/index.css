@@ -16,30 +16,25 @@
 
 /* Hot Collections Slider */
 #section-collections .slick-list {
-  margin: 0 -6px;
+  margin: 0;
 }
 
 #section-collections .slick-slide {
-  padding: 0 6px;
+  padding: 0 4px;
   box-sizing: border-box;
 }
 
 #section-items .slick-slide > div {
   padding: 0 10px;
+  height: 100%;
+}
+
+#section-items .slick-slide {
+  height: inherit;
 }
 
 #section-items .slick-list {
-  margin: 0 -10px;
-}
-
-#section-items .nft__item_wrap {
-  width: 100%;
-}
-
-#section-items .nft__item_preview {
-  width: 100%;
-  height: auto;
-  display: block;
+  margin: 0 10px;
 }
 
 #section-collections .nft_coll {
@@ -59,6 +54,57 @@
   object-fit:fill;
 }
 
+#section-items .nft__item {
+  height: 440px;
+  padding: 20px;
+  position: relative;
+}
+
+#section-items .author_list_pp {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+#section-items .de_countdown {
+  position: absolute;
+  top: 30px;
+  right: 24px;
+}
+
+#section-items .nft__item_wrap {
+  height: 230px;
+  margin-top: 80px;
+  margin-bottom: 18px;
+}
+
+#section-items .nft__item_preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  display: block;
+}
+
+#section-items .nft__item_info {
+   padding-top: 0;
+}
+
+#section-items .nft__item_info h4 {
+  margin-bottom: 8px;
+}
+
+#section-items .nft__item_price {
+  margin-bottom: 0;
+}
+
+#section-items .nft__item_like {
+  position: absolute;
+  right: 24px;
+  bottom: 28px;
+}
+
 /* arrows */
 #section-items .custom-prev,
 #section-items .custom-next {
@@ -74,20 +120,6 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 20;
-}
-
-#section-items .nft__item {
-  min-height: 490px;
-}
-
-#section-items .nft__item_preview {
-   height: 100%;
- }
-
-#section-items .nft__item_wrap {
-  height: 100%;
-  display: flex;
-  object-fit: contain;
 }
 
 #section-items .custom-prev {
@@ -244,11 +276,7 @@
     min-height: auto;
   }
 
-  #section-items .nft__item_wrap {
-    height: 260px;
-  }
-
-  #section-items .custom-prev {
+    #section-items .custom-prev {
     left: 4px;
   }
 

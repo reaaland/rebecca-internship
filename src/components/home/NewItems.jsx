@@ -48,13 +48,14 @@ const NewItems = () => {
   nextArrow: <NextArrow />,
   responsive: [
     {
-      breakpoint: 1300,
+      breakpoint: 992,
       settings: {
         slidesToShow: 2,
+        slidesToScroll: 1,
       },
     },
     {
-      breakpoint: 550,
+      breakpoint: 576,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -119,7 +120,7 @@ const getCountdown = (expirationDate) => {
           <div className="col-lg-12">
             <Slider {...settings}>
               {collections.map((collection, index) => (
-                <div key={index}>
+                <div key={index} className="nft__item_wrap_outer">
                   <div className="nft__item">
                     <div className="author_list_pp">
                       <Link to="/author"

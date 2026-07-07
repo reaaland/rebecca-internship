@@ -12,7 +12,7 @@ const Author = () => {
 
 
 useEffect(() => {
-  getItem();
+  getAuthor();
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [id]);
 

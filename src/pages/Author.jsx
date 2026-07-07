@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AuthorBanner from "../images/author_banner.jpg";
 import AuthorItems from "../components/author/AuthorItems";
-import { Link, useParams } from "react-router-dom";
-import AuthorImage from "../images/author_thumbnail.jpg";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const Author = () => {
@@ -11,9 +10,11 @@ const Author = () => {
    const [followers, setFollowers] = useState(0);
    const [isFollowing, setIsFollowing] = useState(false);
 
+
+ // eslint-disable-next-line react-hooks/exhaustive-deps
    useEffect(() => {
       getAuthor();
-    }, [id]);
+    },  [id]);
 
  const getAuthor = async () => {
   try {

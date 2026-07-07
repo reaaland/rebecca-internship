@@ -13,9 +13,11 @@ const ItemDetails = () => {
   const { id } = useParams();
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
+  
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
   getItem();
-}, [id]);
+  }, [id]);
 
 const getItem = async () => {
   try {

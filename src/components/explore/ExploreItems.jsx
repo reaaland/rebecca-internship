@@ -69,7 +69,7 @@ const ExploreItems = () => {
     <>
       <div>
         <select
-          id="filter-items"
+          id="filter-items" data-aos="fade-up"
           value={filter}
           onChange={(e) => {
             setFilter(e.target.value);
@@ -176,8 +176,9 @@ const ExploreItems = () => {
         </div>
       )}
       {!loading && visibleItems < items.length && (
-        <div className="col-md-12 text-center">
+        <div className="col-md-12 text-center" >
           <button
+            data-aos="fade-up"
             type="button"
             id="loadmore"
             className="btn-main lead"

@@ -119,7 +119,13 @@ const getCountdown = (expirationDate) => {
           </div>
           <div className="col-lg-12">
             <Slider {...settings}>
-              {collections.map((collection, index) => (
+              {loading
+                ? new Array(4).fill(0).map((_, index) => (
+                    <div key={index}>
+                      <div className="nft__item skeleton-card"></div>
+                    </div>
+                  ))
+                : collections.map((collection, index) => (
                 <div key={index} >
                   <div className="nft__item">
                     <div className="author_list_pp">

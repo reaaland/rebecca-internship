@@ -48,13 +48,14 @@ const NewItems = () => {
   nextArrow: <NextArrow />,
   responsive: [
     {
-      breakpoint: 1300,
+      breakpoint: 992,
       settings: {
         slidesToShow: 2,
+        slidesToScroll: 1,
       },
     },
     {
-      breakpoint: 550,
+      breakpoint: 576,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -108,7 +109,7 @@ const getCountdown = (expirationDate) => {
 
  return (
     <section id="section-items" className="no-bottom">
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
@@ -119,10 +120,10 @@ const getCountdown = (expirationDate) => {
           <div className="col-lg-12">
             <Slider {...settings}>
               {collections.map((collection, index) => (
-                <div key={index}>
+                <div key={index} >
                   <div className="nft__item">
                     <div className="author_list_pp">
-                      <Link to="/author"
+                      <Link to={`/author/${collection.authorId}`}
                         data-bs-toggle="tooltip"
                         data-bs-placement="top"
                         title={`Creator: ${collection.authorName}`}
@@ -145,7 +146,7 @@ const getCountdown = (expirationDate) => {
                       </div>
                     </div>
 
-                    <Link to="/item-details">
+                    <Link to={`/item-details/${collection.nftId}`}>
                       <img
                         src={collection.nftImage}
                         className="lazy nft__item_preview"
@@ -155,7 +156,7 @@ const getCountdown = (expirationDate) => {
                   </div>
 
                   <div className="nft__item_info">
-                    <Link to="/item-details">
+                    <Link to={`/item-details/${collection.nftId}`}>
                       <h4>{collection.title}</h4>
                     </Link>
 

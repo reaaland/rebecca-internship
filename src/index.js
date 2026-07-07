@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 ReactDOM.render(
   <React.StrictMode>

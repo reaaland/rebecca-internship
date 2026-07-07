@@ -8,9 +8,9 @@ const Explore = () => {
   }, []);
 
   return (
-    <div id="wrapper">
+    <div id="wrapper" data-aos="fade-up" >
       <div className="no-bottom no-top" id="content">
-        <div id="top"></div>
+        <div id="top" ></div>
 
         <section
           id="subheader"

@@ -11,10 +11,10 @@ const Author = () => {
    const [isFollowing, setIsFollowing] = useState(false);
 
 
- // eslint-disable-next-line react-hooks/exhaustive-deps
-   useEffect(() => {
-      getAuthor();
-    },  [id]);
+useEffect(() => {
+  getItem();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [id]);
 
  const getAuthor = async () => {
   try {

@@ -14,9 +14,10 @@ const ItemDetails = () => {
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
   
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
   useEffect(() => {
-  getItem();
+    getItem();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
 const getItem = async () => {

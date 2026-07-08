@@ -31,38 +31,13 @@ const NewItems = () => {
      
     setTimeout(() => {
       setLoading(false);
+      window.dispatchEvent(new Event("resize"));
     }, 1000); 
 
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
-  const settings = {
-  dots: false,
-  arrows: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  prevArrow: <PrevArrow />,
-  nextArrow: <NextArrow />,
-  responsive: [
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 576,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
 
 function PrevArrow(props) {
   const { onClick } = props;
@@ -83,6 +58,34 @@ function NextArrow(props) {
     </button>
   );
 }
+
+  const settings = {
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,    
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    adaptiveHeight: false,
+    variableWidth: false,
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 900,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 650,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
 
 const getCountdown = (expirationDate) => {
   const difference = expirationDate - time;

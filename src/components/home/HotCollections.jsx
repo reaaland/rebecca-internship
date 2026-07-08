@@ -40,13 +40,14 @@ const HotCollections = () => {
   nextArrow: <NextArrow />,
   responsive: [
     {
-      breakpoint: 1300,
+      breakpoint: 1200,
       settings: {
         slidesToShow: 2,
+        slidesToScroll: 1,
       },
     },
     {
-      breakpoint: 550,
+      breakpoint: 768,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,

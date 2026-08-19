@@ -24,7 +24,7 @@ const ExploreItems = () => {
       setLoading(true);
       try {
         const { data } = await axios.get(
-          `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`
+          `https://us-central1-nft-cloud-functions.cloudfunctions.net/explore?filter=${filter}`,
         );
         setItems(data);
       } catch (error) {
@@ -51,7 +51,7 @@ const ExploreItems = () => {
 
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
-      (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
     );
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
@@ -68,19 +68,24 @@ const ExploreItems = () => {
   return (
     <>
       <div>
-        <select
-          id="filter-items" data-aos="fade-up"
-          value={filter}
-          onChange={(e) => {
-            setFilter(e.target.value);
-            setVisibleItems(8);
-          }}
-        >
-          <option value="">Default</option>
-          <option value="price_low_to_high">Price, Low to High</option>
-          <option value="price_high_to_low">Price, High to Low</option>
-          <option value="likes_high_to_low">Most liked</option>
-        </select>
+        <div>
+          <label htmlFor="filter-items">Sort items</label>
+
+          <select
+            id="filter-items"
+            data-aos="fade-up"
+            value={filter}
+            onChange={(e) => {
+              setFilter(e.target.value);
+              setVisibleItems(8);
+            }}
+          >
+            <option value="">Default</option>
+            <option value="price_low_to_high">Price, Low to High</option>
+            <option value="price_high_to_low">Price, High to Low</option>
+            <option value="likes_high_to_low">Most liked</option>
+          </select>
+        </div>
       </div>
 
       {loading ? (
@@ -134,11 +139,19 @@ const ExploreItems = () => {
                       <button>Buy Now</button>
                       <div className="nft__item_share">
                         <h4>Share</h4>
-                        <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                        <a
+                          href="https://facebook.com"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <i className="fa fa-facebook fa-lg"></i>
                         </a>
 
-                        <a href="https://twitter.com" target="_blank" rel="noreferrer">
+                        <a
+                          href="https://twitter.com"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           <i className="fa fa-twitter fa-lg"></i>
                         </a>
 
@@ -158,7 +171,7 @@ const ExploreItems = () => {
                 </div>
                 <div className="nft__item_info">
                   <Link to={`/item-details/${collection.nftId}`}>
-                    <h4>{collection.title || "Pinky Ocean"}</h4>
+                    <h2>{collection.title || "Pinky Ocean"}</h2>
                   </Link>
 
                   <div className="nft__item_bottom">
@@ -178,7 +191,7 @@ const ExploreItems = () => {
         </div>
       )}
       {!loading && visibleItems < items.length && (
-        <div className="col-md-12 text-center" >
+        <div className="col-md-12 text-center">
           <button
             data-aos="fade-up"
             type="button"

@@ -222,7 +222,7 @@
   padding-bottom: 0;
 }
 
-.explore-items .nft__item_info h4 {
+.explore-items .nft__item_info h2 {
   margin-bottom: 2px;
 }
 
@@ -244,6 +244,10 @@
   align-items: center;
   gap: 4px;
   margin: 0;
+}
+
+.explore-items .nft__item_like span {
+  color: #666666;
 }
 
 .explore-items .nft__item_extra,
@@ -400,4 +404,13 @@
   .explore-items .nft__item_wrap {
     height: 220px;
   }
+}
+
+footer.footer-light h2 {
+  margin-top: 0;
+  font-family: var(--title-font);
+  font-weight: 700;
+  color: #0d0c22;
+  font-size: 18px;
+  text-transform: none;
 }

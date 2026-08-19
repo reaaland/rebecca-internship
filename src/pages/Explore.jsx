@@ -9,7 +9,7 @@ const Explore = () => {
 
   return (
     <div id="wrapper" data-aos="fade-up" >
-      <div className="no-bottom no-top" id="content">
+      <main className="no-bottom no-top" id="content">
         <div id="top" ></div>
 
         <section
@@ -36,7 +36,7 @@ const Explore = () => {
             </div>
           </div>
         </section>
-      </div>
+      </main>
     </div>
   );
 };

@@ -11,6 +11,10 @@ Frontend Simplified provided the starter project, visual direction, assets, API 
 
 This is a learning and implementation project, not an original marketplace product or visual-design claim.
 
+## Notes
+
+The repository is a fork of the Frontend Simplified NFT marketplace starter. Some marketplace actions, such as connecting a real crypto wallet or purchasing an NFT, are demonstration-only and are not implemented as real transactions.
+
 ## What I implemented
 
 - Responsive React pages and reusable marketplace components
@@ -33,10 +37,10 @@ One of the most useful parts of this project was learning how multiple frontend 
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
-The project uses Create React App and runs locally at `http://localhost:3000` by default.
+The project uses Vite for local development and production builds.
 
 ## Build
 
@@ -44,6 +48,58 @@ The project uses Create React App and runs locally at `http://localhost:3000` by
 npm run build
 ```
 
-## Notes
 
-The repository is a fork of the Frontend Simplified NFT marketplace starter. Some marketplace actions, such as connecting a real crypto wallet or purchasing an NFT, are demonstration-only and are not implemented as real transactions.
+## Testing, Accessibility & CI
+
+### Automated testing
+
+Added automated tests with Vitest and React Testing Library for key Explore-page interactions:
+
+- Search input rendering and user typing
+- API sorting by price
+- Incremental "Load more" behavior
+
+The current test suite contains 4 passing tests across 2 test files.
+
+```bash
+npm test -- --run
+```
+### Accessibility
+
+Audited the Explore page with Lighthouse and improved the Accessibility score from 82 to 100.
+
+Changes included:
+
+- Added accessible form labeling
+- Improved image alternative text
+- Corrected heading hierarchy
+- Added semantic `<main>` structure
+- Improved text color contrast
+- Added an accessible label to the newsletter icon link
+
+### Performance
+
+Audited the live Explore page with Lighthouse using a desktop Incognito session.
+
+- Initial Performance baseline: 95
+- Identified oversized externally hosted images and legacy starter-project render-blocking resources
+- Tested native image lazy loading
+- Re-measured after the change and found a performance regression
+- Reverted the change rather than keeping an optimization that performed worse
+- Final verification remained in Lighthouse's green performance range
+
+Larger image-delivery and legacy-resource changes were intentionally left unchanged because they are tied to the provided internship API and starter-project architecture.
+
+### Continuous integration
+
+Added a GitHub Actions CI workflow that automatically runs on pushes and pull requests to `main`.
+
+The workflow:
+
+- Checks out the repository
+- Sets up Node.js
+- Installs dependencies with `npm ci`
+- Runs the automated test suite
+- Verifies the production build
+
+Deployment continues through Vercel.

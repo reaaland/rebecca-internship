@@ -122,6 +122,7 @@ const ExploreItems = () => {
                       className="lazy"
                       src={collection.authorImage || AuthorImage}
                       alt={collection.authorName || "Author"}
+                      loading="lazy"
                     />
                     <i className="fa fa-check"></i>
                   </Link>
@@ -166,6 +167,7 @@ const ExploreItems = () => {
                       src={collection.nftImage || nftImage}
                       className="lazy nft__item_preview"
                       alt={collection.title || "NFT"}
+                      loading="lazy"
                     />
                   </Link>
                 </div>

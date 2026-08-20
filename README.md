@@ -2,7 +2,7 @@
 
 A responsive React marketplace interface completed as part of my Frontend Simplified internship work.
 
-**Live project:** https://rebecca-internship.vercel.app  
+**Live project:** https://ultraverse.rebeccaiaaland.com  
 **Portfolio:** https://www.rebeccaiaaland.com
 
 ## Project context
